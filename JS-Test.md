@@ -84,7 +84,34 @@ Write a JS function `cachebuster`.
 
 ```javascript
 function cachebuster() {
- // your code goes here
+	// your code goes here
+	var updateInterval = 1000 * 60 * 5; //How often a new code should generate, in milliseconds
+
+	if (!window.uuidHistory)
+		window.uuidHistory = [];
+
+	if (window.uuidHistory.length < 1 || Date.now() - window.uuidHistory[window.uuidHistory.length-1].time >= updateInterval) {
+		window.uuidHistory.push({
+			time: Date.now(),
+			uuid: uuid()
+		});
+	}
+
+	function uuid() {
+		var chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+		var blocks = [];
+		for (var i=0; i<5; i++) {
+			var str = '';
+			for (var j=0; j<5; j++) {
+				str += chars[Math.floor(Math.random() * chars.length)];
+			}
+			blocks.push(str);
+		}
+		return blocks.join('-');
+	}
+
+	return window.uuidHistory[window.uuidHistory.length-1].uuid;
+
 }
 
 console.log(cachebuster()); // Called immediately, outputs string or integer, e.g. "abcd" or 1234
