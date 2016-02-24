@@ -17,7 +17,8 @@ console.log(sum(2)(3)); // Outputs 5
 ``` 
 
 - [x] Make the function working for any number of arguments.
--- ```javascript
+
+```javascript
 function sum() {
 
 	var args = Array.prototype.slice.call(arguments);
