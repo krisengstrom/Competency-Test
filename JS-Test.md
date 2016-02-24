@@ -78,8 +78,8 @@ for (var i = 0; i < 5; i++) {
 #### Task 4. Cache buster function.
 
 Write a JS function `cachebuster`.
-- [ ] The function should return new unique value (string or integer) every 5 minutes. See example below.
-- [ ] Make this function as short as it is possible.
+- [x] The function should return new unique value (string or integer) every 5 minutes. See example below.
+- [x] Make this function as short as it is possible.
 
 
 ```javascript
