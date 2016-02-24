@@ -60,8 +60,20 @@ for (var i = 0; i < 5; i++) {
 }
 ```
 
-- [ ] What will be the output when user clicks on `Button 1` and why? 
-- [ ] Please, suggest a fix to get the expected behavior.
+- [x] What will be the output when user clicks on `Button 1` and why? 
+- - It will always be 5 because i is a reference to a variable in the global scope.
+- [x] Please, suggest a fix to get the expected behavior.
+```javascript
+for (var i = 0; i < 5; i++) {
+	var btn = document.createElement('button');
+	btn.appendChild(document.createTextNode('Button ' + i));
+	btn.dataset.index = i; //use a data attribute on the model/element itself
+	btn.addEventListener('click', function() {
+		console.log(this.dataset.index);
+	});
+	document.body.appendChild(btn);
+}
+```
 
 #### Task 4. Cache buster function.
 
