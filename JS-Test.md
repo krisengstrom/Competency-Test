@@ -5,18 +5,46 @@
 - [x] Please explain why this code `console.log(0.1 + 0.2 == 0.3);` outputs `false` in console? 
 - - Floating point numbers are always approximate. The sum won't be exactly 0.3. 
 - [x] Please suggest fix to make this expression working as expected.
-- - `console.log((parseFloat(0.1) + parseFloat(0.2)).toFixed(2) == 0.3);`
+- - `console.log(parseFloat(0.1 + 0.2).toFixed(2) == 0.3);`
 
 #### Task 2. Sum function.
 
-- [ ] Write a `sum` function which will work properly when invoked using either syntax below: 
+- [x] Write a `sum` function which will work properly when invoked using either syntax below: 
 
 ```javascript
 console.log(sum(2,3)); // Outputs 5 
 console.log(sum(2)(3)); // Outputs 5
 ``` 
 
-- [ ] Make the function working for any number of arguments.
+- [x] Make the function working for any number of arguments.
+-- ```javascript
+function sum() {
+
+	var args = Array.prototype.slice.call(arguments);
+	var sum = args[0];
+
+	function add(arg) {
+		sum += arg;
+		return add;
+	}
+
+	add.toString = function() {
+		return sum;
+	}
+
+	if (args.length > 1) {
+		args.slice(1).forEach(function(arg) {
+			add(arg);
+		});
+	}
+
+	return add;
+}
+
+console.log(parseInt(sum(10)(10)(10)));
+console.log(parseInt(sum(10, 10, 10)));
+``` 
+
 
 #### Task 3. Loops.
 
