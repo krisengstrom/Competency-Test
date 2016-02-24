@@ -3,9 +3,9 @@
 #### Task 1. Floats.
 
 - [x] Please explain why this code `console.log(0.1 + 0.2 == 0.3);` outputs `false` in console? 
--- Floating point numbers are always approximate. The sum won't be exactly 0.3. 
+- - Floating point numbers are always approximate. The sum won't be exactly 0.3. 
 - [x] Please suggest fix to make this expression working as expected.
--- `console.log((parseFloat(0.1) + parseFloat(0.2)).toFixed(2) == 0.3);`
+- - `console.log((parseFloat(0.1) + parseFloat(0.2)).toFixed(2) == 0.3);`
 
 #### Task 2. Sum function.
 
